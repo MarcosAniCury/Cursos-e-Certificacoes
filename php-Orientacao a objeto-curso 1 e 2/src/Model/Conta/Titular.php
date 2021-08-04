@@ -2,9 +2,7 @@
 
 namespace Raiz\Banco\Model\Conta;
 
-use Raiz\Banco\Model\Pessoa;
-
-use Raiz\Banco\Model\Endereco;
+use Raiz\Banco\Model\{Pessoa, Endereco};
 
 class Titular extends Pessoa
 {
