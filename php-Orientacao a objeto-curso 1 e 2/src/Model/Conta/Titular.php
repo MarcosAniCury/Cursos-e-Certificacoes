@@ -1,6 +1,10 @@
 <?php
 
-namespace Raiz\Banco\Model;
+namespace Raiz\Banco\Model\Conta;
+
+use Raiz\Banco\Model\Pessoa;
+
+use Raiz\Banco\Model\Endereco;
 
 class Titular extends Pessoa
 {
