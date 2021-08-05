@@ -1,9 +1,6 @@
 <?php
 
-require_once 'src/Pessoa.php';
-require_once 'src/Conta.php';
-require_once 'src/Titular.php';
-require_once 'src/Endereco.php';
+require 'autoload.php';
 
 $pconta = new Conta(new Titular('123.456.789-10','Marcos Ani Cury',new Endereco('Amazonas','Amazoninhas','Bananeira', '69')));
 $pconta->printConta();

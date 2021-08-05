@@ -1,6 +1,6 @@
 <?php
 
-namespace Raiz\Banco\Model;
+namespace Raiz\Banco\Modelo;
 
 class Funcionario extends Pessoa
 {
