@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FlatList, StyleSheet, Text } from "react-native";
-import { loadingGrowers } from "../../../services/loadingData";
+import useGrowers from "../../../hooks/useGrowers";
 import Grower from "./Grower";
 
 export default function Growers({ header: Header }) {
-    const [title, setTitle] = useState('')
-    const [list, setList] = useState([])
-
-    useEffect(() => {
-        const data = loadingGrowers();
-        setTitle(data.title)
-        setList(data.list)
-    }, [])
+    const [title, list] = useGrowers();
 
     const HeaderList = () => <>
         <Header />
