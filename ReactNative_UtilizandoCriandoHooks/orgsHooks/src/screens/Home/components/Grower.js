@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useMemo, useReducer } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Stars from "../../../components/Stars";
 
+const distanceMeters = (distance) => {
+    return `${distance}m`;
+}
+
 export default function Grower({ name, image, distance, stars }) {
-    const [select, setSelect] = useState(false);
+    const [select, invertSelect] = useReducer((select) => !select, false);
+    const distanceText = useMemo(() => distanceMeters(distance), [distance])
 
     return (
         <TouchableOpacity
             style={styles.card}
-            onPress={() => { setSelect(!select) }}
+            onPress={invertSelect}
         >
             <Image source={image} accessibilityLabel={name} style={styles.image} />
             <View style={styles.infos}>
@@ -16,7 +21,7 @@ export default function Grower({ name, image, distance, stars }) {
                     <Text style={styles.name}>{name}</Text>
                     <Stars quantity={stars} edit={select} big={select} />
                 </View>
-                <Text style={styles.distance}>{distance}</Text>
+                <Text style={styles.distance}>{distanceText}</Text>
             </View>
         </TouchableOpacity>
     );
