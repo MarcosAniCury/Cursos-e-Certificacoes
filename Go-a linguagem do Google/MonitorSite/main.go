@@ -4,9 +4,12 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
 
 var SITES_TO_MONITOR = []string{"https://www.sofex.com.br", "https://www.facialmap.com.br"}
+
+const WAIT_TIME_BEFORE_MONITOR_AGAIN = time.Minute * 10
 
 func monitoringWebsite() {
 	fmt.Println("Initialize monitor...")
@@ -25,6 +28,7 @@ func monitoringWebsite() {
 				fmt.Println("Error: Status Code ", result.StatusCode)
 			}
 		}
+		time.Sleep(WAIT_TIME_BEFORE_MONITOR_AGAIN)
 	}
 }
 
